@@ -10,6 +10,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true) //(onlyExplicitlyIncluded = true) -> cria o EqualsAndHashCode apenas para o que for incluido
