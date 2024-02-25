@@ -1,9 +1,8 @@
-package com.algaworks.algatransito.api.controller;
+package com.algaworks.transito.api.controller;
 
-import com.algaworks.algatransito.domain.exception.NegocioException;
-import com.algaworks.algatransito.domain.model.Proprietario;
-import com.algaworks.algatransito.domain.repository.ProprietarioRepository;
-import com.algaworks.algatransito.domain.service.RegistroProprietarioService;
+import com.algaworks.transito.domain.model.Proprietario;
+import com.algaworks.transito.domain.repository.ProprietarioRepository;
+import com.algaworks.transito.domain.service.RegistroProprietarioService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;

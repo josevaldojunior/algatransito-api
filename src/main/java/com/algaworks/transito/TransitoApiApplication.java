@@ -1,13 +1,13 @@
-package com.algaworks.algatransito;
+package com.algaworks.transito;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AlgatransitoApiApplication {
+public class TransitoApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AlgatransitoApiApplication.class, args);
+		SpringApplication.run(TransitoApiApplication.class, args);
 	}
 
 }

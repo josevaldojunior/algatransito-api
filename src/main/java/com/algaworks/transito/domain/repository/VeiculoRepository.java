@@ -1,6 +1,6 @@
-package com.algaworks.algatransito.domain.repository;
+package com.algaworks.transito.domain.repository;
 
-import com.algaworks.algatransito.domain.model.Veiculo;
+import com.algaworks.transito.domain.model.Veiculo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

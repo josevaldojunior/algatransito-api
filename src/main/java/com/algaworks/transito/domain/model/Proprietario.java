@@ -1,6 +1,6 @@
-package com.algaworks.algatransito.domain.model;
+package com.algaworks.transito.domain.model;
 
-import com.algaworks.algatransito.domain.validation.ValidationGroups;
+import com.algaworks.transito.domain.validation.ValidationGroups;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -9,8 +9,6 @@ import jakarta.validation.constraints.Size;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.time.LocalDateTime;
 
 @Getter
 @Setter

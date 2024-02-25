@@ -10,7 +10,7 @@
 	</parent>
 
 	<groupId>com.algaworks.algatransito</groupId>
-	<artifactId>algatransito-api</artifactId>
+	<artifactId>transito-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>algatransito-api</name>
 	<description>Api do Alga Transito</description>

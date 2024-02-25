@@ -1,10 +1,10 @@
-package com.algaworks.algatransito;
+package com.algaworks.transito;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AlgatransitoApiApplicationTests {
+class TransitoApiApplicationTests {
 
 	@Test
 	void contextLoads() {

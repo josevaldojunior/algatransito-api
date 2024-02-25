@@ -1,6 +1,6 @@
-package com.algaworks.algatransito.api.exceptionhandler;
+package com.algaworks.transito.api.exceptionhandler;
 
-import com.algaworks.algatransito.domain.exception.NegocioException;
+import com.algaworks.transito.domain.exception.NegocioException;
 import lombok.AllArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
