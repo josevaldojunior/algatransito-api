@@ -1,6 +1,6 @@
-package com.algaworks.transito.domain.model;
+package com.transito.domain.model;
 
-import com.algaworks.transito.domain.validation.ValidationGroups;
+import com.transito.domain.validation.ValidationGroups;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import jakarta.persistence.*;

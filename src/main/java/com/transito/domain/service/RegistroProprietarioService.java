@@ -1,8 +1,8 @@
-package com.algaworks.transito.domain.service;
+package com.transito.domain.service;
 
-import com.algaworks.transito.domain.exception.NegocioException;
-import com.algaworks.transito.domain.model.Proprietario;
-import com.algaworks.transito.domain.repository.ProprietarioRepository;
+import com.transito.domain.exception.NegocioException;
+import com.transito.domain.model.Proprietario;
+import com.transito.domain.repository.ProprietarioRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

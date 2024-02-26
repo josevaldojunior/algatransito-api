@@ -1,6 +1,6 @@
-package com.algaworks.transito.domain.model;
+package com.transito.domain.model;
 
-import com.algaworks.transito.domain.validation.ValidationGroups;
+import com.transito.domain.validation.ValidationGroups;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

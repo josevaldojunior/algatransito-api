@@ -1,4 +1,4 @@
-package com.algaworks.transito.domain.validation;
+package com.transito.domain.validation;
 
 public interface ValidationGroups {
 
