@@ -1,4 +1,4 @@
-package com.transito.domain.exception;
+package com.algaworks.transito.domain.exception;
 
 public class NegocioException extends RuntimeException{
 

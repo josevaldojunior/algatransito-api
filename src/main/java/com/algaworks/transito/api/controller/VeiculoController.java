@@ -1,8 +1,8 @@
-package com.transito.api.controller;
+package com.algaworks.transito.api.controller;
 
-import com.transito.domain.model.Veiculo;
-import com.transito.domain.repository.VeiculoRepository;
-import com.transito.domain.service.RegistroVeiculoService;
+import com.algaworks.transito.domain.model.Veiculo;
+import com.algaworks.transito.domain.repository.VeiculoRepository;
+import com.algaworks.transito.domain.service.RegistroVeiculoService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;

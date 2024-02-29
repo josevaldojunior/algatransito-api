@@ -1,10 +1,10 @@
-package com.transito.domain.service;
+package com.algaworks.transito.domain.service;
 
-import com.transito.domain.exception.NegocioException;
-import com.transito.domain.model.Proprietario;
-import com.transito.domain.model.StatusVeiculo;
-import com.transito.domain.model.Veiculo;
-import com.transito.domain.repository.VeiculoRepository;
+import com.algaworks.transito.domain.exception.NegocioException;
+import com.algaworks.transito.domain.model.Proprietario;
+import com.algaworks.transito.domain.repository.VeiculoRepository;
+import com.algaworks.transito.domain.model.StatusVeiculo;
+import com.algaworks.transito.domain.model.Veiculo;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
