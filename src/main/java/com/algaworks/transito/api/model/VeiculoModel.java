@@ -1,4 +1,4 @@
-package com.algaworks.transito.api.dto;
+package com.algaworks.transito.api.model;
 
 import com.algaworks.transito.domain.model.StatusVeiculo;
 import lombok.Getter;
@@ -8,10 +8,10 @@ import java.time.OffsetDateTime;
 
 @Getter
 @Setter
-public class VeiculoDTO {
+public class VeiculoModel {
 
     private Long id;
-    private String nomeProprietario;
+    private ProprietarioResumoModel proprietario;
     private String marca;
     private String modelo;
     private String numeroPlaca;

@@ -1,6 +1,7 @@
 package com.algaworks.transito.api.controller;
 
-import com.algaworks.transito.api.dto.VeiculoDTO;
+import com.algaworks.transito.api.model.VeiculoModel;
+import com.algaworks.transito.api.model.input.VeiculoInput;
 import com.algaworks.transito.api.mapper.VeiculoMapper;
 import com.algaworks.transito.domain.model.Veiculo;
 import com.algaworks.transito.domain.repository.VeiculoRepository;
@@ -23,21 +24,26 @@ public class VeiculoController {
     private final VeiculoMapper veiculoMapper;
 
     @GetMapping
-    public List<VeiculoDTO> listar() {
-        return veiculoMapper.toCollection(veiculoRepository.findAll());
+    public List<VeiculoModel> listar() {
+        return veiculoMapper.toCollectionModel(veiculoRepository.findAll());
     }
 
     @GetMapping("/{veiculoId}")
-    public ResponseEntity<VeiculoDTO> buscar(@PathVariable Long veiculoId) {
+    public ResponseEntity<VeiculoModel> buscar(@PathVariable Long veiculoId) {
         return veiculoRepository.findById(veiculoId)
                 .map(veiculoMapper::toModel)
-                .map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public VeiculoDTO cadastrar(@Valid @RequestBody Veiculo veiculo) { //@Valid habilita as validações criadas na entidade
-        return veiculoMapper.toModel(registroVeiculoService.cadastrar(veiculo));
+    public VeiculoModel cadastrar(@Valid @RequestBody VeiculoInput veiculoInput) { //@Valid habilita as validações criadas na entidade
+
+        Veiculo novoVeiculo = veiculoMapper.toEntity(veiculoInput);
+        Veiculo veiculoCadastrado = registroVeiculoService.cadastrar(novoVeiculo);
+
+        return veiculoMapper.toModel(veiculoCadastrado);
     }
 
 }
