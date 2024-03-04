@@ -1,10 +1,13 @@
 package com.algaworks.transito.api.model.input;
 
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class ProprietarioInput {
 
     @NotBlank //Não permite null ou vazio
