@@ -2,14 +2,14 @@ package com.algaworks.transito.domain.service;
 
 import com.algaworks.transito.domain.exception.NegocioException;
 import com.algaworks.transito.domain.model.Proprietario;
-import com.algaworks.transito.domain.repository.VeiculoRepository;
 import com.algaworks.transito.domain.model.StatusVeiculo;
 import com.algaworks.transito.domain.model.Veiculo;
+import com.algaworks.transito.domain.repository.VeiculoRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 @AllArgsConstructor
 @Service
@@ -36,7 +36,7 @@ public class RegistroVeiculoService {
 
         novoveiculo.setProprietario(proprietario);
         novoveiculo.setStatus(StatusVeiculo.REGULAR);
-        novoveiculo.setDataCadastro(LocalDateTime.now());
+        novoveiculo.setDataCadastro(OffsetDateTime.now());
 
         return veiculoRepository.save(novoveiculo);
 
