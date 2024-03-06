@@ -4,7 +4,7 @@ import com.algaworks.transito.domain.model.StatusVeiculo;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.OffsetDateTime;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -16,7 +16,7 @@ public class VeiculoModel {
     private String modelo;
     private String numeroPlaca;
     private StatusVeiculo status;
-    private OffsetDateTime dataCadastro;
-    private OffsetDateTime dataApreensao;
+    private LocalDateTime dataCadastro;
+    private LocalDateTime dataApreensao;
 
 }

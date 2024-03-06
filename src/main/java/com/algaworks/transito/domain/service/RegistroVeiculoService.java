@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.OffsetDateTime;
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @Service
@@ -36,7 +36,7 @@ public class RegistroVeiculoService {
 
         novoveiculo.setProprietario(proprietario);
         novoveiculo.setStatus(StatusVeiculo.REGULAR);
-        novoveiculo.setDataCadastro(OffsetDateTime.now());
+        novoveiculo.setDataCadastro(LocalDateTime.now());
 
         return veiculoRepository.save(novoveiculo);
 
