@@ -1,5 +1,6 @@
 package com.algaworks.transito.domain.model;
 
+import com.algaworks.transito.domain.exception.NegocioException;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -35,12 +36,34 @@ public class Veiculo {
     @OneToMany(mappedBy = "veiculo", cascade = CascadeType.ALL)
     private List<Autuacao> autuacao = new ArrayList<>();
 
-    public Autuacao adicionarAutuacao(Autuacao autuacao){
+    public Autuacao adicionarAutuacao(Autuacao autuacao) {
         autuacao.setDataOcorrencia(LocalDateTime.now());
         autuacao.setVeiculo(this);
         getAutuacao().add(autuacao);
 
         return autuacao;
+    }
+
+    public void apreender() {
+        if (isApreendido()) {
+            throw new NegocioException("Veículo já se encontra apreendido");
+        }
+
+        setStatus(StatusVeiculo.APREENDIDO);
+        setDataApreensao(LocalDateTime.now());
+    }
+
+    public void removerApreensao() {
+        if (!isApreendido()) {
+            throw new NegocioException("Veículo não se encontra apreendido");
+        }
+
+        setStatus(StatusVeiculo.REGULAR);
+        setDataApreensao(null);
+    }
+
+    public boolean isApreendido() {
+        return getStatus().equals(StatusVeiculo.APREENDIDO);
     }
 
 }
