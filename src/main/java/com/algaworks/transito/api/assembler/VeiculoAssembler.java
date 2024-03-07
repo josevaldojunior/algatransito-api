@@ -1,4 +1,4 @@
-package com.algaworks.transito.api.mapper;
+package com.algaworks.transito.api.assembler;
 
 import com.algaworks.transito.api.model.VeiculoModel;
 import com.algaworks.transito.api.model.input.VeiculoInput;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @Component
-public class VeiculoMapper {
+public class VeiculoAssembler {
 
     private final ModelMapper modelMapper;
 

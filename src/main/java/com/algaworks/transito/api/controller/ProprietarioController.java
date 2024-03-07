@@ -1,6 +1,6 @@
 package com.algaworks.transito.api.controller;
 
-import com.algaworks.transito.api.mapper.ProprietarioMapper;
+import com.algaworks.transito.api.assembler.ProprietarioAssembler;
 import com.algaworks.transito.api.model.ProprietarioModel;
 import com.algaworks.transito.api.model.input.ProprietarioInput;
 import com.algaworks.transito.domain.model.Proprietario;
@@ -21,17 +21,17 @@ public class ProprietarioController {
 
     private final RegistroProprietarioService registroProprietarioService;
     private final ProprietarioRepository proprietarioRepository;
-    private final ProprietarioMapper proprietarioMapper;
+    private final ProprietarioAssembler proprietarioAssembler;
 
     @GetMapping
     public List<ProprietarioModel> listar() {
-        return proprietarioMapper.toCollectionModel(proprietarioRepository.findAll());
+        return proprietarioAssembler.toCollectionModel(proprietarioRepository.findAll());
     }
 
     @GetMapping("/{proprietarioId}")
     public ResponseEntity<ProprietarioModel> buscar(@PathVariable Long proprietarioId) {
         return proprietarioRepository.findById(proprietarioId)
-                .map(proprietarioMapper::toModel)
+                .map(proprietarioAssembler::toModel)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
@@ -40,10 +40,10 @@ public class ProprietarioController {
     @ResponseStatus(HttpStatus.CREATED)
     public ProprietarioModel cadastrar(@Valid @RequestBody ProprietarioInput proprietarioInput) {
 
-        Proprietario novoProprietario = proprietarioMapper.toEntity(proprietarioInput);
+        Proprietario novoProprietario = proprietarioAssembler.toEntity(proprietarioInput);
         Proprietario proprietarioCadastrado = registroProprietarioService.salvar(novoProprietario);
 
-        return proprietarioMapper.toModel(proprietarioCadastrado);
+        return proprietarioAssembler.toModel(proprietarioCadastrado);
     }
 
     @PutMapping("{proprietarioId}")

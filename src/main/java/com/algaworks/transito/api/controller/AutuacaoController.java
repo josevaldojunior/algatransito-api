@@ -1,6 +1,6 @@
 package com.algaworks.transito.api.controller;
 
-import com.algaworks.transito.api.mapper.AutuacaoMapper;
+import com.algaworks.transito.api.assembler.AutuacaoAssembler;
 import com.algaworks.transito.api.model.AutuacaoModel;
 import com.algaworks.transito.api.model.input.AutuacaoInput;
 import com.algaworks.transito.domain.model.Autuacao;
@@ -20,23 +20,23 @@ import java.util.List;
 public class AutuacaoController {
 
     private final RegistroAutuacaoService registroAutuacaoService;
-    private final AutuacaoMapper autuacaoMapper;
+    private final AutuacaoAssembler autuacaoAssembler;
     private final RegistroVeiculoService registroVeiculoService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public AutuacaoModel registrar(@PathVariable Long veiculoId,
                                    @Valid @RequestBody AutuacaoInput autuacaoInput) {
-        Autuacao novaAutuacao = autuacaoMapper.toEntity(autuacaoInput);
+        Autuacao novaAutuacao = autuacaoAssembler.toEntity(autuacaoInput);
         Autuacao autuacaoRegistrada = registroAutuacaoService.registrar(veiculoId, novaAutuacao);
 
-        return autuacaoMapper.toModel(autuacaoRegistrada);
+        return autuacaoAssembler.toModel(autuacaoRegistrada);
     }
 
     @GetMapping
     public List<AutuacaoModel> listar(@PathVariable Long veiculoId) {
         Veiculo veiculo = registroVeiculoService.buscar(veiculoId);
-        return autuacaoMapper.toCollectionModel(veiculo.getAutuacao());
+        return autuacaoAssembler.toCollectionModel(veiculo.getAutuacao());
     }
 
 }

@@ -1,4 +1,4 @@
-package com.algaworks.transito.api.mapper;
+package com.algaworks.transito.api.assembler;
 
 import com.algaworks.transito.api.model.AutuacaoModel;
 import com.algaworks.transito.api.model.input.AutuacaoInput;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @Component
-public class AutuacaoMapper {
+public class AutuacaoAssembler {
 
     private final ModelMapper modelMapper;
 

@@ -1,4 +1,4 @@
-package com.algaworks.transito.api.mapper;
+package com.algaworks.transito.api.assembler;
 
 import com.algaworks.transito.api.model.ProprietarioModel;
 import com.algaworks.transito.api.model.input.ProprietarioInput;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @Component
-public class ProprietarioMapper {
+public class ProprietarioAssembler {
 
     private final ModelMapper modelMapper;
 

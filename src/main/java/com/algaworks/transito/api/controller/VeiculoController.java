@@ -2,7 +2,7 @@ package com.algaworks.transito.api.controller;
 
 import com.algaworks.transito.api.model.VeiculoModel;
 import com.algaworks.transito.api.model.input.VeiculoInput;
-import com.algaworks.transito.api.mapper.VeiculoMapper;
+import com.algaworks.transito.api.assembler.VeiculoAssembler;
 import com.algaworks.transito.domain.model.Veiculo;
 import com.algaworks.transito.domain.repository.VeiculoRepository;
 import com.algaworks.transito.domain.service.ApreensaoVeiculoService;
@@ -22,18 +22,18 @@ public class VeiculoController {
 
     private final VeiculoRepository veiculoRepository;
     private final RegistroVeiculoService registroVeiculoService;
-    private final VeiculoMapper veiculoMapper;
+    private final VeiculoAssembler veiculoAssembler;
     private final ApreensaoVeiculoService apreensaoVeiculoService;
 
     @GetMapping
     public List<VeiculoModel> listar() {
-        return veiculoMapper.toCollectionModel(veiculoRepository.findAll());
+        return veiculoAssembler.toCollectionModel(veiculoRepository.findAll());
     }
 
     @GetMapping("/{veiculoId}")
     public ResponseEntity<VeiculoModel> buscar(@PathVariable Long veiculoId) {
         return veiculoRepository.findById(veiculoId)
-                .map(veiculoMapper::toModel)
+                .map(veiculoAssembler::toModel)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
@@ -42,10 +42,10 @@ public class VeiculoController {
     @ResponseStatus(HttpStatus.CREATED)
     public VeiculoModel cadastrar(@Valid @RequestBody VeiculoInput veiculoInput) { //@Valid habilita as validações criadas na entidade
 
-        Veiculo novoVeiculo = veiculoMapper.toEntity(veiculoInput);
+        Veiculo novoVeiculo = veiculoAssembler.toEntity(veiculoInput);
         Veiculo veiculoCadastrado = registroVeiculoService.cadastrar(novoVeiculo);
 
-        return veiculoMapper.toModel(veiculoCadastrado);
+        return veiculoAssembler.toModel(veiculoCadastrado);
     }
 
     @PutMapping("/{veiculoId}/apreensao")
