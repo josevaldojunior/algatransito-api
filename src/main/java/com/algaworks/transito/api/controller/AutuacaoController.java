@@ -26,7 +26,7 @@ public class AutuacaoController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public AutuacaoModel registrar(@PathVariable Long veiculoId,
-                                   @Valid @RequestBody AutuacaoInput autuacaoInput){
+                                   @Valid @RequestBody AutuacaoInput autuacaoInput) {
         Autuacao novaAutuacao = autuacaoMapper.toEntity(autuacaoInput);
         Autuacao autuacaoRegistrada = registroAutuacaoService.registrar(veiculoId, novaAutuacao);
 
@@ -34,7 +34,7 @@ public class AutuacaoController {
     }
 
     @GetMapping
-    public List<AutuacaoModel> listar(@PathVariable Long veiculoId){
+    public List<AutuacaoModel> listar(@PathVariable Long veiculoId) {
         Veiculo veiculo = registroVeiculoService.buscar(veiculoId);
         return autuacaoMapper.toCollectionModel(veiculo.getAutuacao());
     }

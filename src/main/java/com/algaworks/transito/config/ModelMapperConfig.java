@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class ModelMapperConfig {
 
     @Bean
-    public ModelMapper modelMapper(){
+    public ModelMapper modelMapper() {
         var modelMapper = new ModelMapper();
 
         modelMapper.createTypeMap(Veiculo.class, VeiculoModel.class)

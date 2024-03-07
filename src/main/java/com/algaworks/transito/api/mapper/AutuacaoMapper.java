@@ -15,15 +15,15 @@ public class AutuacaoMapper {
 
     private final ModelMapper modelMapper;
 
-    public Autuacao toEntity(AutuacaoInput autuacaoInput){
+    public Autuacao toEntity(AutuacaoInput autuacaoInput) {
         return modelMapper.map(autuacaoInput, Autuacao.class);
     }
 
-    public AutuacaoModel toModel(Autuacao autuacao){
+    public AutuacaoModel toModel(Autuacao autuacao) {
         return modelMapper.map(autuacao, AutuacaoModel.class);
     }
 
-    public List<AutuacaoModel> toCollectionModel(List<Autuacao> autuacoes){
+    public List<AutuacaoModel> toCollectionModel(List<Autuacao> autuacoes) {
         return autuacoes.stream()
                 .map(this::toModel)
                 .toList();

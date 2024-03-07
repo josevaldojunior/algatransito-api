@@ -10,11 +10,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true) //(onlyExplicitlyIncluded = true) -> cria o EqualsAndHashCode apenas para o que for incluido
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 public class Proprietario {
 
-    @EqualsAndHashCode.Include //Inclui o Id para gerar o EqualsAndHashCode
+    @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

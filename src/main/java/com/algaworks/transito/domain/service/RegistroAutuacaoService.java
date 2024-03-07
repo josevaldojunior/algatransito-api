@@ -13,7 +13,7 @@ public class RegistroAutuacaoService {
     private final RegistroVeiculoService registroVeiculoService;
 
     @Transactional
-    public Autuacao registrar(Long veiculoId, Autuacao novaAutuacao){
+    public Autuacao registrar(Long veiculoId, Autuacao novaAutuacao) {
         Veiculo veiculo = registroVeiculoService.buscar(veiculoId);
         return veiculo.adicionarAutuacao(novaAutuacao);
     }

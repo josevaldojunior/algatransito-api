@@ -38,18 +38,18 @@ public class ProprietarioController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ProprietarioModel cadastrar(@Valid @RequestBody ProprietarioInput proprietarioInput){
+    public ProprietarioModel cadastrar(@Valid @RequestBody ProprietarioInput proprietarioInput) {
 
         Proprietario novoProprietario = proprietarioMapper.toEntity(proprietarioInput);
-        Proprietario proprietarioCadastrado =  registroProprietarioService.salvar(novoProprietario);
+        Proprietario proprietarioCadastrado = registroProprietarioService.salvar(novoProprietario);
 
         return proprietarioMapper.toModel(proprietarioCadastrado);
     }
 
     @PutMapping("{proprietarioId}")
     public ResponseEntity<Proprietario> atualizar(@PathVariable Long proprietarioId,
-                                                  @Valid @RequestBody Proprietario proprietario){
-        if (!proprietarioRepository.existsById(proprietarioId)){
+                                                  @Valid @RequestBody Proprietario proprietario) {
+        if (!proprietarioRepository.existsById(proprietarioId)) {
             return ResponseEntity.notFound().build();
         }
 
@@ -60,9 +60,9 @@ public class ProprietarioController {
     }
 
     @DeleteMapping("{proprietarioId}")
-    public ResponseEntity<Void> remover(@PathVariable Long proprietarioId){
+    public ResponseEntity<Void> remover(@PathVariable Long proprietarioId) {
 
-        if(!proprietarioRepository.existsById(proprietarioId)){
+        if (!proprietarioRepository.existsById(proprietarioId)) {
             return ResponseEntity.notFound().build();
         }
 
