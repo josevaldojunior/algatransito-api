@@ -32,7 +32,7 @@ public class Veiculo {
     private LocalDateTime dataCadastro;
     private LocalDateTime dataApreensao;
 
-    @OneToMany(mappedBy = "veiculo")
+    @OneToMany(mappedBy = "veiculo", cascade = CascadeType.ALL)
     private List<Autuacao> autuacao = new ArrayList<>();
 
     public Autuacao adicionarAutuacao(Autuacao autuacao){
