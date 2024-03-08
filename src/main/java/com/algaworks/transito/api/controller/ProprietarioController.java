@@ -6,6 +6,7 @@ import com.algaworks.transito.api.model.input.ProprietarioInput;
 import com.algaworks.transito.domain.model.Proprietario;
 import com.algaworks.transito.domain.repository.ProprietarioRepository;
 import com.algaworks.transito.domain.service.RegistroProprietarioService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
+@Tag(name = "Proprietario")
 @RequestMapping("/proprietarios")
 public class ProprietarioController {
 

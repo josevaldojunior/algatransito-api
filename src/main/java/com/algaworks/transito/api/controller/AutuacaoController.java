@@ -7,6 +7,7 @@ import com.algaworks.transito.domain.model.Autuacao;
 import com.algaworks.transito.domain.model.Veiculo;
 import com.algaworks.transito.domain.service.RegistroAutuacaoService;
 import com.algaworks.transito.domain.service.RegistroVeiculoService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
+@Tag(name = "Autuações")
 @RequestMapping("/veiculo/{veiculoId}/autuacoes")
 public class AutuacaoController {
 

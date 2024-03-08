@@ -17,12 +17,13 @@ import java.util.List;
 public class Veiculo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private Long id;
 
     @ManyToOne
     private Proprietario proprietario;
+
     private String marca;
     private String modelo;
     private String placa;

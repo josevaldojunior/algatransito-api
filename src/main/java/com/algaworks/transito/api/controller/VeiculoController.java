@@ -7,6 +7,7 @@ import com.algaworks.transito.domain.model.Veiculo;
 import com.algaworks.transito.domain.repository.VeiculoRepository;
 import com.algaworks.transito.domain.service.ApreensaoVeiculoService;
 import com.algaworks.transito.domain.service.RegistroVeiculoService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
+@Tag(name = "veiculos")
 @RequestMapping("/veiculo")
 public class VeiculoController {
 
@@ -40,7 +42,7 @@ public class VeiculoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public VeiculoModel cadastrar(@Valid @RequestBody VeiculoInput veiculoInput) { //@Valid habilita as validações criadas na entidade
+    public VeiculoModel cadastrar(@Valid @RequestBody VeiculoInput veiculoInput) {
 
         Veiculo novoVeiculo = veiculoAssembler.toEntity(veiculoInput);
         Veiculo veiculoCadastrado = registroVeiculoService.cadastrar(novoVeiculo);
